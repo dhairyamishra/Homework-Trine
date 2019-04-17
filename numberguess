@@ -1,0 +1,36 @@
+import random
+
+def findd(guess,rand):
+    print(rand)
+    if guess==rand:
+      print("correect")
+      ret=input("do u wish to play again, Y/y or N/n?: ")
+      if ret=='y' or ret=='Y':
+        print("\n"*3)
+        main()
+      else:
+        exit("it was fun playing")
+    
+    elif(guess>rand):
+      print("lower")
+      guesser(rand)
+    else:
+      print("higher")
+      guesser(rand)
+
+def guesser(r):
+    g=int(input("enter guess: "))
+    if g not in range(0,101):
+      print("guess out of range, guess again")
+      guesser(r)
+    else:
+      findd(g,r)
+
+def main():
+    r= random.randint(0,100)
+    print("welcome, guess number from 0-100")
+    guesser(r)
+    
+
+if __name__ == "__main__":
+    main()
