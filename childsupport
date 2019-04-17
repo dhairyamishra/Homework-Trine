@@ -1,0 +1,86 @@
+def  computeAssistance():
+  #max help= 10,000
+  inc=float(input("What is household income (-1 to quit)?: "))
+  if (inc>0) and (inc!=-1): 
+    kid=int(input("Enter number of children: "))
+    
+  elif inc==-1:
+      exit("thank you bye bye")
+
+  else:
+     print("invalid input\n\n\n\n")
+     computeAssistance()
+  
+  assist=0
+  if inc>=30000 and inc<=40000 and  kid>=3:
+    assist=1000*kid
+    
+  elif inc>=20000 and inc<=30000 and kid>=2:
+    assist=1500*kid
+    
+
+  elif inc<20000:
+    assist=2000*kid
+    
+  else:
+    pass
+  
+  if assist>10000:
+    print("The assistance amount is $10000.00")
+    computeAssistance()
+
+  else:
+    print("The assistance amount is ${}".format(format(assist,".2f")))
+    computeAssistance()  
+
+def ValidPassword():
+  #8char#1upper1lower#onedigit
+  while True:
+        pp=input("enter your password: ")
+        pass2=input("Re-enter password: ")
+        if pp!=pass2:
+          print("\n\n\npasswords do not match each other")
+          continue
+        if len(pp)<8:
+          print("Your Password is {} charecters long,".format(len(pp)))
+          print("it needs at least {} more charecters\n".format(8-len(pp)))
+        else:
+          break
+  up=0
+  low=0
+  num=0
+  nani=0
+  for i in range(len(pp)):
+    if pp[i].isupper():
+      up=up+1
+    elif pp[i].islower():
+      low=low+1
+    elif pp[i].isdigit():
+      num=num+1
+    else:
+      nani=nani+1
+  if up==0 or low==0 or num==0:
+    print("\n\ndoes not meet requirements")
+    print("Password has {} Uppercase, {} Lowercase, {} Digits.".format(up,low,num))
+    print("Password needs at least one of each")
+    ValidPassword()
+  else:
+    print("Hurray, the password works!!!")
+
+
+def main():
+  print("Press 1 for social networking services,\nPress 2 for secure password.")
+  sp=(input("Enter your choice: "))
+  if sp=='1':
+    computeAssistance()
+
+  elif sp=='2':
+    ValidPassword()
+
+  else:
+    print("Not a valid choice\n\n\n\n")
+    main()
+
+
+if __name__ == "__main__":
+    main()
