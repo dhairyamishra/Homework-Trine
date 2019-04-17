@@ -1,0 +1,24 @@
+fname= "data3.txt"
+f = open(fname, 'r')
+i=0
+ann=[]
+big=0
+small=0
+summ=0
+avg=0
+line=f.readline().rstrip("\t").rstrip("\n")
+while line != "":
+    print("number {} : {}".format(i,line))
+    ann.append(int(line))
+    i=i+1
+    line=f.readline().rstrip("\t").rstrip("\n")
+small=min(ann)
+big=max(ann)
+for i in range(len(ann)):
+    summ=summ+ann[i]
+avg=summ/len(ann)
+print("largest number: ", big)
+print("smallest num:", small )
+print("sum: ", summ)
+print("avg: ",format(avg,".2f"))
+f.close()
