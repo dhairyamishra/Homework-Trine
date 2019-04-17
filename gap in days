@@ -1,0 +1,66 @@
+def main():
+    date1 = input("Enter date 1 in format MM/DD/YYYY: ")
+    date2 = input("Enter date 2 in format MM/DD/YYYY: ")
+    datarray = datesplit(date1, date2)
+    da1= datarray[0:3]
+    da2=datarray[3:6]
+    bigD1= calcdate(da1)
+    bigD2= calcdate(da2)
+    daybet= bigD2 - bigD1
+    print("\n\nThe number of days between {} and {} is {} days.".format(date1,date2,daybet))
+    replay = input("\n\nDo you wish to play again? Enter  Y for Yes or anything else for no")
+    if replay=="Y":
+        main()
+    else:
+        exit("Thanks ofr playing")
+
+def calcdate(a):
+    datenNUM= (1461 * (int(a[2]) + 4800 + (int(a[0]) - 14)/12  ))/4 + (367 * (int(a[0]) - 2 - 12*((int(a[0]) - 14)/12)))/12 - (3* ((int(a[2])+4900 + (int(a[0])-14)/12)/100))/4 +int(a[1]) - 32075
+    datenNUM= int(datenNUM)
+    return datenNUM
+
+
+
+
+
+def datesplit(a, b):
+    month31 = [1, 3, 5, 7, 8, 10, 12]
+    month30 = [2, 4, 6, 9, 11]
+    d1 = (a.split("/"))
+    d2 = (b.split("/"))
+    for i in range(len(d1)):
+        d1[i] = int(d1[i])
+        d2[i] = int(d2[i])
+    dans = d1 + d2
+
+    for i in range(len(d1)):
+        if d1[0] < 1 or d1[0] > 12 or d2[0] < 1 or d2[0] > 12:
+            print("invalid date format, month is wrong\n\n\n")
+            main()
+
+        elif d1[1] > 31 or d1[1] < 1 or d2[1] > 31 or d2[1] < 1:
+            print("invalid date format, day is wrong\n\n\n")
+
+            main()
+
+        elif d1[2] > 2400 or d1[2] < 1600 or d2[2] > 2400 or d2[2] < 1600:
+            print("invalid date,year is wrong\n\n\n")
+
+        else:
+            if d1[0] in month30 and d1[1]>30:
+                print("date wrt month incorrect for date 1")
+                main()
+            elif d2[0] in month30 and d2[1]>30:
+                print("date wrt month incorrect for date 2")
+                main()
+            elif d1[0]==2 and d1[1]>28:
+                print("date wrt month incorrect for date 1")
+                main()
+            elif d2[0]==2 and d2[1]>28:
+                print("date wrt month incorrect for date 2")
+                main()
+            else:
+                return dans
+
+if __name__ == "__main__":
+    main()
