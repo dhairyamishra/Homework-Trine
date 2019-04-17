@@ -1,0 +1,83 @@
+def main():
+    bb=[]
+
+    length = int(input("Enter size of array"))
+    for i in range(length):
+        j=int(random.uniform(1, 100))
+        bb.append(j)
+    zbb = bb
+    print(bb)
+    print("Swap First and Last: ", swapFL(bb))
+    print("Shifted to right: ", shiftr(bb))
+    print("All even to Zero: ", zero(zbb))
+    print("Middle odd or middle 2 even: ", middler(bb))
+    print("Second Largest Element: ", secondbig(bb))
+    print("Is list sorted in ascending?: ", issort(bb))
+    print("List contains adjacent duplicates?: ", adj(bb))
+    print("Contains Duplicates?: ", duplicates(bb))
+
+
+
+def duplicates(x):
+    for i in range(10):
+        for j in range(10):
+            if x[i]==x[j]:
+                return True
+        return False
+
+
+def adj(x):
+    for i in range(9):
+        if x[i] == x[i+1]:
+            return True
+        else:
+            return False
+
+def zero(x):
+    x[1::1]=0
+    return x
+
+
+def middler(x):
+    l= len(x)
+    if l % 2 == 0:
+        del x[l//2]
+        del x[(l//2)+1]
+        return x
+    elif l % 2 != 0:
+        del x[(l//2)+1]
+        return x
+    else:
+        print("error")
+
+def secondbig(x):
+    x = sorted(x)
+    return (x[-2])
+
+def issort(x):
+    if sorted(x)== True:
+        return True
+    else:
+        return False
+
+def swapFL(x):
+    temp=x[0]
+    x[0]=x[-1]
+    x[-1]= temp
+    return x
+
+def shiftr(x):
+    x = x[-1:] + x[:-1]
+    return x
+
+def zero(x):
+    for i in range(10):
+        x[i]=0
+    return x
+    pass
+
+
+
+
+if __name__ == "__main__":
+    main()
