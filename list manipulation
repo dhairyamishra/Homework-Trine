@@ -1,0 +1,30 @@
+s=input("Enter a String: ")
+print("\n")
+leng=len(s)
+for i in range(leng):
+  if s[i].isupper():
+    print(s[i],end="")
+print("\n")
+
+print(s[::2])
+print("\n")
+
+indexv=[]
+vowel=['a','e','i','o','u','A','E','I','O','U']
+slist= list(s)
+for i in range(leng):
+  if s[i] in vowel:
+    slist[i]='@'
+    indexv.append(i)
+
+print("".join(slist))
+print("\n")
+
+counter=0
+for i in range(leng):
+  if s[i].isdigit():
+    counter=counter+1
+print("String contains",counter,"digits")
+print("\n")
+
+print("vowels are in positions: ",str(indexv).lstrip('[').rstrip(']'))
