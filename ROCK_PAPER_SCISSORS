@@ -1,0 +1,62 @@
+import random
+def answer():
+  an=input("Do u wish to play, Y/y or N/n: ")
+  if an=="Y" or an=="y":
+    print("")
+  else:
+      exit("Awww....\nSorry to know that you do not want to play.\nMay be next time.")
+
+def choice():
+  print("Enter Choice:\n1.ROCK\n2.PAPER\n3.SCISSOR")
+  cho=int(input(""))
+  if cho==1:
+    print("choice is ROCk")
+    return cho
+  if cho==2:
+    print("choice is paper")
+    return cho
+  if cho==3:
+    print("choice is Scissors")
+    return cho
+  else:
+    print("ivalid")
+    choice()
+
+def versus(answ):
+  rn=(random.randint(0,2))
+  aaa=answ-1
+  rps=["ROCK","PAPER","SCISSORS"]
+  print("Now its computer turn.......")
+  print("Computer choice is ",rps[rn])
+  print(rps[aaa]," V/s ",rps[rn])
+  if rps[aaa]==rps[rn]:
+    print("match was a draw")
+  elif aaa==0 and rn==1:
+    print("{0} wins=><={1} wins==>".format(rps[1],"computer"))
+  elif aaa==1 and rn==2:
+    print("{0} wins=><={1} wins==>".format(rps[2],"computer"))
+  elif aaa==2 and rn==0:
+    print("{0} wins=><={1} wins==>".format(rps[0],"computer"))
+  else:
+    print("{0} wins=><={1} wins==>".format(rps[aaa],"User"))
+  print("\n\nDo u wish to play again?")
+  retry=input("Enter Y/y or N/n: ")
+  if retry=='y' or retry=='Y':
+    main()
+  else:
+    print("Thank you for playing the game.\nI had a great time.")
+    exit("")
+
+def main():
+   chocho=choice()
+   versus(chocho)
+
+if __name__ == "__main__":
+   print("+----------------------------------------------+")
+   print('|Winning Rules of the Rock Paper Scissor game. |')
+   print('|Rock vs Paper -> Paper wins                   |')
+   print('|Rock vs Scissor->Rock wins                    |')
+   print('|Paper vs Scissor -> Scissor wins              |')
+   print('+----------------------------------------------+')
+   answer()
+   main()
