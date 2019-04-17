@@ -1,0 +1,31 @@
+month=input("enter month of the year in number: ")
+day=input("enter day of the month: ")
+winter=["1","2","3"]
+spring=["4","5","6"]
+summer=["7","8","9"]
+fall=["10","11","12"]
+x=int(month)%3
+
+
+if x== 0 and int(day)>=21:
+  if month in winter:
+    print("season is {0}".format("spring"))
+  elif month in spring:
+    print("season is {0}".format("summer"))
+  elif month in summer:
+    print("season is {0}".format("fall"))
+  elif month in fall:
+    print("season is {0}".format("winter"))
+  else:
+    print("invalid input")
+else:
+  if month in winter:
+    print("season is {0}".format("winter"))
+  elif month in spring:
+   print("season is {0}".format("spring"))
+  elif month in summer:
+    print("season is {0}".format("summer"))
+  elif month in fall:
+    print("season is {0}".format("fall"))
+  else:
+    print("invalid inputs")
