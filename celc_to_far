@@ -1,0 +1,12 @@
+SENT=-999.99
+f = open("data1.txt", 'r')
+line =f.readline().rstrip("\n")
+c=float(line)
+print("Celsius \t Fahrenheit")
+while c != SENT:
+    x= c*(9/5)+32
+    print(c,"\t\t",format(x,".2f"))
+    line=f.readline()
+    c= float(line)
+print("\n\n\n")
+f.close()
